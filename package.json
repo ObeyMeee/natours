@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile:sass": "node-sass sass/main.scss css/icon-font.css -w"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ObeyMeee/natours/issues"
   },
-  "homepage": "https://github.com/ObeyMeee/natours#readme"
+  "homepage": "https://github.com/ObeyMeee/natours#readme",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
 }
