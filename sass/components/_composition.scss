@@ -5,7 +5,7 @@
     position: absolute;
     width: 55%;
     box-shadow: $box-shadow-light;
-    border-radius: 4px;
+    border-radius: $border-radius-default;
     z-index: 10;
     transition: all .4s;
     outline-offset: 2rem;
