@@ -1,14 +1,19 @@
 .popup {
   height: 100vh;
   width: 100%;
-  background-color: $color-grey-dark-3;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 33;
+  background-color: $color-grey-dark;
   opacity: 0;
   visibility: hidden;
   transition: all .3s;
+
+  @supports (backdrop-filter: blur(10px)) {
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-grey-dark-2, .2);
+  }
 
   &__content {
     @include horizontal-vertical-center;
@@ -20,6 +25,10 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(.25);
     transition: all .3s .2s;
+
+    @include respond(tab-land) {
+      display: block;
+    }
   }
 
   &__right {
@@ -27,16 +36,37 @@
     vertical-align: middle;
     width: 66.666667%;
     padding: 3rem 5rem;
+
+    @include respond(tab-land) {
+      display: block;
+      width: 100%;
+      text-align: center;
+      vertical-align: unset;
+    }
   }
 
   &__left {
     display: table-cell;
     width: 33.333333%;
+
+    @include respond(tab-land) {
+      display: inline-block;
+      width: 100%;
+      font-size: 0;
+      white-space: nowrap;
+    }
   }
 
   &__img {
     display: block;
     width: 100%;
+
+    @include respond(tab-land) {
+      display: inline-block;
+      width: 50%;
+      object-fit: cover; /* Ensure equal height for both images */
+      object-position: center; /* Center the images within their containers */
+    }
   }
 
   &__text {
@@ -58,11 +88,16 @@
       text-decoration: none;
       color: $color-grey-dark-3;
       transition: all .2s;
+
+      @include respond(tab-land) {
+        color: $color-primary;
+        font-size: 4rem;
+      }
     }
 
     &:hover,
     &:active {
-      color: $color-primary;
+      color: $color-secondary-dark;
     }
   }
 
